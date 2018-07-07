@@ -13,4 +13,3 @@ bundle exec jekyll serve --watch
 
 # build a fresh version of the site
 bundle exec jekyll build --destination docs
-echo "jdodson.org" > docs/CNAME
