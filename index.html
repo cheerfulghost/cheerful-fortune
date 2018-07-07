@@ -4,5 +4,21 @@
 
 layout: default
 ---
+<script>
+  $( document ).ready(function() {
+    var fortune_files = [ "bmc-fortunes/fortunes", "cheerfulghostquotes", "bsd-fortunes/fortunes", "bsd-fortunes/startrek" ];
+    var fortune_file = fortune_files[Math.floor(Math.random() * fortune_files.length)];
 
-FORTUNE
+    jQuery.get('fortunes/'+fortune_file, function(data) {
+       var fortunes = data.split("%\n");
+
+       var fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+       //fortune = fortune.slice(1, fortune.length); // remove the first newline
+       fortune = fortune.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+
+       $(".fortune").html(fortune);
+    });
+  });
+</script>
+
+<span class="fortune">FORTUNE LOADING...</span>
