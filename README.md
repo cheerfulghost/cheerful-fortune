@@ -1,8 +1,10 @@
 # Cheerful Fortune
 
 Cheerful Fortune looks to recreate some of the functionality of BSD Fortune in
-a single page web app.  We use Jekyll to manage the site, Bootstrap to make
-things pretty and jQuery to load the fortune files and randomly select a good one.
+a single page web app and add new stuff like text-to-speech functionality.  
+
+We use Jekyll to manage the site, Bootstrap to make things pretty and jQuery to
+load the fortune files and randomly select a good one.
 
 The fortune files were pulled from the original BSD Fortune and many other sources
  cited below.
@@ -10,6 +12,7 @@ The fortune files were pulled from the original BSD Fortune and many other sourc
 * Jekyll
 * Bootstrap
 * jQuery
+* JavaScript SpeechSynthesisUtterance library: https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API
 
 # Fortune sources
 
@@ -25,6 +28,10 @@ add the files you will need to update the rakefile.rb and add the new fortune fi
 Running the rakefile will generate a new JavaScript Hash object that will list all the fortune files
  and how many fortunes are in it.  This is so JavaScript can properly randomize between fortunes without
   loading each file.  This optimization was made to save to save bandwidth on each page load.
+
+# Text to Speech
+
+Cheerful Fortune uses
 
 # install
 

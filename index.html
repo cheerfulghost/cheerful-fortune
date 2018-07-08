@@ -46,6 +46,11 @@ layout: default
     $( ".one_more" ).click(function() {
       show_fortune(fortune_files);
     });
+
+    $( ".read_it" ).click(function() {
+      var msg = new SpeechSynthesisUtterance($(".fortune").text());
+      window.speechSynthesis.speak(msg);
+    });
   });
 </script>
 
@@ -53,3 +58,4 @@ layout: default
 
 <br/>
 <button type="button" class="btn btn-info one_more">One More</button>
+<button type="button" class="btn btn-info read_it">Read It Aloud</button>
