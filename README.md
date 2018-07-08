@@ -1,7 +1,30 @@
-# cheerful-fortune uses
+# Cheerful Fortune
 
-* jekyll
-* bootstrap 4
+Cheerful Fortune looks to recreate some of the functionality of BSD Fortune in
+a single page web app.  We use Jekyll to manage the site, Bootstrap to make
+things pretty and jQuery to load the fortune files and randomly select a good one.
+
+The fortune files were pulled from the original BSD Fortune and many other sources
+ cited below.
+
+* Jekyll
+* Bootstrap
+* jQuery
+
+# Fortune sources
+
+* https://github.com/ruanyf/fortunes/ - Used the main fortune file as it contains some quotes not in other files that are interesting.
+* https://svnweb.freebsd.org/base/head/usr.bin/fortune/datfiles/?pathrev=325827 - Pulled BSD Fortune files after the removed the Hitler quotes but before they removed them entirely.  We use the main fortune & startrek files.
+* https://github.com/bmc/fortunes/ - Use BMC's fortune file.  It's similar to BSD Fortune but with a few changes.
+* http://fortunes.cat-v.org/kernelnewbies/ - Need slightly more Linux kernel quotes.
+
+# Adding a new Fortune source
+
+Make sure to add the new fortune source to the /fortunes directory noting where you got it.  After you
+add the files you will need to update the rakefile.rb and add the new fortune files and then run rake.
+Running the rakefile will generate a new JavaScript Hash object that will list all the fortune files
+ and how many fortunes are in it.  This is so JavaScript can properly randomize between fortunes without
+  loading each file.  This optimization was made to save to save bandwidth on each page load.
 
 # install
 

@@ -6,14 +6,36 @@ layout: default
 ---
 <script>
   $( document ).ready(function() {
-    var fortune_files = [ "bmc-fortunes/fortunes", "cheerfulghostquotes", "bsd-fortunes/fortunes", "bsd-fortunes/startrek" ];
-    var fortune_file = fortune_files[Math.floor(Math.random() * fortune_files.length)];
+    var fortune_files_total = {
+      "/fortunes/bmc-fortunes/fortunes": "2915",
+      "/fortunes/cheerfulghostquotes": "2",
+      "/fortunes/bsd-fortunes/fortunes": "12446",
+      "/fortunes/bsd-fortunes/startrek": "202",
+      "/fortunes/ruanyf/fortune": "5458",
+      "/fortunes/catv/kernelnewbies": "437",
+      "/fortunes/splitbrain/starwars": "68",
+    };
 
-    jQuery.get('fortunes/'+fortune_file, function(data) {
+    var fortune_files = [];
+
+    // make each fortune in each file it's own fortune_files entry
+    // so we can correctly display the random fortune.  since each
+    // fortune gets it's own array line and we randomly pick one array
+    // line it's an equal distribution.
+    for (var file in fortune_files_total) {
+      for (i = 0; i < fortune_files_total[file]; i++) {
+        fortune_files.push(file);
+      }
+    }
+
+    console.log(fortune_files);
+
+    var random_fortune_file = fortune_files[Math.floor(Math.random() * fortune_files.length)];
+
+    jQuery.get(random_fortune_file, function(data) {
        var fortunes = data.split("%\n");
 
        var fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-       //fortune = fortune.slice(1, fortune.length); // remove the first newline
        fortune = fortune.replace(/(?:\r\n|\r|\n)/g, '<br/>');
 
        $(".fortune").html(fortune);
