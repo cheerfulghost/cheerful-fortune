@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Cheerful Fortune</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Cheerful Fortune</h1>
+      <p class="lead">
+        <script>
+  $( document ).ready(function() {
+    var fortune_files_total = {
+      "/fortunes/bmc-fortunes/fortunes": "2915",
+      "/fortunes/cheerfulghostquotes": "2",
+      "/fortunes/bsd-fortunes/fortunes": "12446",
+      "/fortunes/bsd-fortunes/startrek": "202",
+      "/fortunes/ruanyf/fortune": "5458",
+      "/fortunes/catv/kernelnewbies": "437",
+      "/fortunes/splitbrain/starwars": "68",
+    };
+
+    var fortune_files = [];
+
+    // make each fortune in each file it's own fortune_files entry
+    // so we can correctly display the random fortune.  since each
+    // fortune gets it's own array line and we randomly pick one array
+    // line it's an equal distribution.
+    for (var file in fortune_files_total) {
+      for (i = 0; i < fortune_files_total[file]; i++) {
+        fortune_files.push(file);
+      }
+    }
+
+    console.log(fortune_files);
+
+    var random_fortune_file = fortune_files[Math.floor(Math.random() * fortune_files.length)];
+
+    jQuery.get(random_fortune_file, function(data) {
+       var fortunes = data.split("%\n");
+
+       var fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+       fortune = fortune.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+
+       $(".fortune").html(fortune);
+    });
+  });
+</script>
+
+<span class="fortune">FORTUNE LOADING...</span>
+
+      </p>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"><a href="about.html">Who made this?</a></span>
+      </div>
+    </footer>
+  </body>
+</html>
