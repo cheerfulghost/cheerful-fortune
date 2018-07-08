@@ -21,31 +21,29 @@
       <h1 class="mt-5">Cheerful Fortune</h1>
       <p class="lead">
         <script>
-  $( document ).ready(function() {
-    var fortune_files_total = {
-      "fortunes/bmc-fortunes/fortunes": "2915",
-      "fortunes/cheerfulghostquotes": "2",
-      "fortunes/bsd-fortunes/fortunes": "12446",
-      "fortunes/bsd-fortunes/startrek": "202",
-      "fortunes/ruanyf/fortune": "5458",
-      "fortunes/catv/kernelnewbies": "437",
-      "fortunes/splitbrain/starwars": "68",
-    };
+  var fortune_files_total = {
+    "fortunes/bmc-fortunes/fortunes": "2915",
+    "fortunes/cheerfulghostquotes": "2",
+    "fortunes/bsd-fortunes/fortunes": "12446",
+    "fortunes/bsd-fortunes/startrek": "202",
+    "fortunes/ruanyf/fortune": "5458",
+    "fortunes/catv/kernelnewbies": "437",
+    "fortunes/splitbrain/starwars": "68",
+  };
 
-    var fortune_files = [];
+  var fortune_files = [];
 
-    // make each fortune in each file it's own fortune_files entry
-    // so we can correctly display the random fortune.  since each
-    // fortune gets it's own array line and we randomly pick one array
-    // line it's an equal distribution.
-    for (var file in fortune_files_total) {
-      for (i = 0; i < fortune_files_total[file]; i++) {
-        fortune_files.push(file);
-      }
+  // make each fortune in each file it's own fortune_files entry
+  // so we can correctly display the random fortune.  since each
+  // fortune gets it's own array line and we randomly pick one array
+  // line it's an equal distribution.
+  for (var file in fortune_files_total) {
+    for (i = 0; i < fortune_files_total[file]; i++) {
+      fortune_files.push(file);
     }
+  }
 
-    console.log(fortune_files);
-
+  function show_fortune(fortune_files) {
     var random_fortune_file = fortune_files[Math.floor(Math.random() * fortune_files.length)];
 
     jQuery.get(random_fortune_file, function(data) {
@@ -56,10 +54,21 @@
 
        $(".fortune").html(fortune);
     });
+  }
+
+  $( document ).ready(function() {
+    show_fortune(fortune_files);
+
+    $( ".one_more" ).click(function() {
+      show_fortune(fortune_files);
+    });
   });
 </script>
 
 <span class="fortune">FORTUNE LOADING...</span>
+
+<br/>
+<button type="button" class="btn btn-info one_more">One More</button>
 
       </p>
     </main>
