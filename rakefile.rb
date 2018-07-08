@@ -24,7 +24,7 @@ task :default do
     file_string = file_array*""
     fortunes = file_string.split("%")
 
-    puts "  \"/#{file_path}\": \"#{fortunes.length}\","
+    puts "  \"#{file_path}\": \"#{fortunes.length}\","
 
     total_quotes += fortunes.length
   end
