@@ -12,7 +12,7 @@ The fortune files were pulled from the original BSD Fortune and many other sourc
 * Jekyll
 * Bootstrap
 * jQuery
-* JavaScript SpeechSynthesisUtterance library: https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API
+* JavaScript SpeechSynthesisUtterance API
 
 # Fortune sources
 
@@ -31,7 +31,9 @@ Running the rakefile will generate a new JavaScript Hash object that will list a
 
 # Text to Speech
 
-Cheerful Fortune uses
+Cheerful Fortune uses the brand new Text to Speech JavaScript API that's now quite common among modern browsers.  We use the stock browser implementation documented well below.
+
+https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API
 
 # install
 
