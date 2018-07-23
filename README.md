@@ -17,7 +17,7 @@ The fortune files were pulled from the original BSD Fortune and many other sourc
 # Fortune sources
 
 * https://github.com/ruanyf/fortunes/ - Used the main fortune file as it contains some quotes not in other files that are interesting.
-* https://svnweb.freebsd.org/base/head/usr.bin/fortune/datfiles/?pathrev=325827 - Pulled BSD Fortune files after the removed the Hitler quotes but before they removed them entirely.  We use the main fortune & startrek files.
+* https://svnweb.freebsd.org/base/head/usr.bin/fortune/datfiles/?pathrev=325827 - Pulled BSD Fortune files after they removed the Hitler quotes, because we don't want Hitler quotes.  We use the main fortune & startrek files only.
 * https://github.com/bmc/fortunes/ - Use BMC's fortune file.  It's similar to BSD Fortune but with a few changes.
 * http://fortunes.cat-v.org/kernelnewbies/ - Need slightly more Linux kernel quotes.
 
