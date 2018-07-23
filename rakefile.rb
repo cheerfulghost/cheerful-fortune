@@ -11,13 +11,16 @@ task :default do
   puts "var fortune_files_total = {"
 
   [
-    "#{fortune_directory}/bmc-fortunes/fortunes",
+    #"#{fortune_directory}/bmc-fortunes/fortunes",
     "#{fortune_directory}/cheerfulghostquotes",
-    "#{fortune_directory}/bsd-fortunes/fortunes",
+    #"#{fortune_directory}/bsd-fortunes/fortunes",
     "#{fortune_directory}/bsd-fortunes/startrek",
     "#{fortune_directory}/ruanyf/fortune",
     "#{fortune_directory}/catv/kernelnewbies",
-    "#{fortune_directory}/splitbrain/starwars"
+    "#{fortune_directory}/splitbrain/starwars",
+    "#{fortune_directory}/drwho/drwho",
+    "#{fortune_directory}/friends/friends",
+    "#{fortune_directory}/nerdtv/tvmovie"
   ].each do |file_path|
     file_array = IO.readlines(file_path)
 

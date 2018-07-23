@@ -20,6 +20,11 @@ The fortune files were pulled from the original BSD Fortune and many other sourc
 * https://svnweb.freebsd.org/base/head/usr.bin/fortune/datfiles/?pathrev=325827 - Pulled BSD Fortune files after they removed the Hitler quotes, because we don't want Hitler quotes.  We use the main fortune & startrek files only.
 * https://github.com/bmc/fortunes/ - Use BMC's fortune file.  It's similar to BSD Fortune but with a few changes.
 * http://fortunes.cat-v.org/kernelnewbies/ - Need slightly more Linux kernel quotes.
+* https://www.splitbrain.org/projects/fortunes/starwars - We need Star Wars quotes and this was a good source.
+* https://cheerfulghost.com - Added some quotes from Cheerful Ghost.  Feel free to submit more, should be fun to see what we can add here from the community.
+* http://www.shlomifish.org/humour/fortunes/ - Friends quotes because getting some old school 90's Ross references is either trolling to some or timely.
+* http://katspace.com/fandom/quotes/ - Dr Who quotes are essential.
+* http://katspace.com/fandom/quotes/tvmovie - Some extremely nerdy TV & Movie quotes.  Seriously Star Cops & Highlander?  We absolutely needed these!
 
 # Adding a new Fortune source
 
